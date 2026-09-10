@@ -49,7 +49,7 @@
 \newcommand{\tabreff}[2]{Tables~\ref{tab:#1} and \ref{tab:#2}}
 \newcommand{\tabrefff}[3]{Tables~\ref{tab:#1}, \ref{tab:#2} and \ref{tab:#3}}
 
-\def\year{2025--2026}
+\def\year{2026--2027}
 \title{EITA66 Design of Systems for Digital Transformation\\\year}
 %\title{EITA65 Digitalisering -- realisering och systemdesign med användarperspektiv\\\year}
 \author{{\huge Databases \& Web Servers}\\\\Raspberry Pi Project -- Part 3}
@@ -63,7 +63,7 @@
 
 \begin{itemize}
 \item \includegraphics[width=3mm]{person.png} This project will be done individually, but you will work \textit{together} in groups of 3 or 4.
-\item You will not get detailed step-by-step instructions. Figuring out how to reach the goal is part of the project. (being a collaborative doer)
+\item You will not get detailed step-by-step instructions. Figuring out how to reach the goal is part of the project (being a collaborative doer).
 \item The results of this project part will be used in the next so document, and backup, your work.
 \end{itemize}
 
@@ -150,7 +150,6 @@ By default, the Redis server will start automatically after it is installed by t
 \begin{equation}
     \texttt{redis-cli ping}
 \end{equation}
-
 If it returns \texttt{PONG} in response, that means your server is already running. If not, then to start the redis server: Open a new terminal, and run the command
 \begin{equation}
     \texttt{redis-server}
@@ -268,7 +267,7 @@ Apart from it being easy to use, we will come back to using Flask servers in the
 \section{How do Web Pages and Browsers Work?}
 Browsers, such as \emph{Chrome} or \emph{Safari}, are programs that retrieve and display web pages. Web pages are \textit{hosted} on different servers, so every time you want to go to a new web page, your browser needs to communicate with the server where the new page is hosted \cite{web}. 
 
-When you type a web address/URL, let us say \url{www.xkcd.com}, your browsers submit an HTTP request to xkcd's server, and the server starts to send over the information needed to display the web page. Your browser processes all the information which contains several different types of code (typically at least HTML, XML or JavaScript) and elements (such as Flash or ActiveX). When your browser has processed all the components, it displays the web page \cite{web}.
+When you type a web address/URL, let us say \url{www.xkcd.com}, your browsers submit an HTTP request to xkcd's server, and the server starts to send over the information needed to display the web page. Your browser processes all the information which contains several different types of code (typically at least HTML, XML or JavaScript). When your browser has processed all the components, it displays the web page \cite{web}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=50mm]{brow.png}
@@ -290,10 +289,17 @@ Flask is a micro web framework that does not require any other tools or librarie
 \end{figure}
 
 \section{Installing and using a Flask Web Server}
-Flask is included in the Python3 library, and in order to try it out, follow {\color{blue} \href{https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/0}{this tutorial}}. Note that Python and Flask are already installed on your Raspberry so you can ignore those steps.
+We must start by installing Flask. Open a terminal and type
+
+\begin{equation}
+    \texttt{sudo apt install python3-flask}
+\end{equation}
+
+
+\noindent Then follow {\color{blue} \href{https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/0}{this tutorial}} (https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/0).
 
 In the tutorial you will learn how to make a web application and how to add web pages to it. Add more pages and find more information about HTML and CSS to make your pages look better. Add at least one image to one of your pages -- use the \verb!<img>! tag to include an image object on your web page.
-When you are done, your web application should consist of at least two web pages that you can navigate between (by, say, clicking on links embedded in the web pages). AYour CCS styling does not need to be pretty. We are just interested in you getting used to using it in practice, so any (visible) styling will do for now.\\
+When you are done, your web application should consist of at least two web pages that you can navigate between (by, say, clicking on links embedded in the web pages). Your CCS styling does not need to be pretty. We are just interested in you getting used to using it in practice, so any (visible) styling will do for now.\\
 
 \noindent{\bf Note: }\parbox[t]{14cm}{When updating your CSS-file, you might need to delete your cache in your browser to be able to see the changes.}\\
 
@@ -302,7 +308,7 @@ When you are done, your web application should consist of at least two web pages
 \section{Lab Goal}
 \textcolor{red}{In order to make everything come together, make a web page where you present your latest sensor values that you have stored in your Redis database. If there is a new value in the database, the value should update if you refresh the page. Show your web page to the TAs.}
 
-As a helpful hint, it is much easier (and more reasonable) if you write two scripts (Puthon programs) and run them in two terminals at the same time. The first script reads sensor data and keeps the Redis database updated with the latest reading(s), as you did in Part 5 above. You could use an infinite while loop to update the values and then sleep for, say, 10 seconds, before updating the values again. To sleep for 10 seconds import the package \texttt{time} and then do \texttt{time.sleep(10)}. The second script is your \verb!app.py!, and in the function of the web page route where you want to show your sensor data, read the data from the Redis database and pass the values as variables in the HTML code.
+As a helpful hint, it is much easier (and more reasonable) if you write two scripts (Python programs) and run them in two terminals at the same time. The first script reads sensor data and keeps the Redis database updated with the latest reading(s), as you did in Part 5 above. You could use an infinite while loop to update the values and then sleep for, say, 10 seconds, before updating the values again. To sleep for 10 seconds import the package \texttt{time} and then do \texttt{time.sleep(10)}. The second script is your \verb!app.py!, and in the function of the web page route where you want to show your sensor data, read the data from the Redis database and pass the values as variables in the HTML code.
 
 %\section{Theme (Optional)}
 %We love music, and if you like music too, then we would love to know more about that. Please choose one of your favourite bands or artists and use that as a theme for your web page. In the impossibly unlikely event that you dislike all music ever created in the history of humankind, please let us know so we can start a fundraiser for music therapy -- and choose your own alternate theme (but extra kudos, of course, if you Rickroll \cite{rickroll} your site visitors). To add or not???
